@@ -34,7 +34,7 @@ function HeroIntro({ aboutId }: HeroIntroProps) {
       </div>
 
       {/* One line always. The size is the normal size, but never more than 8.4% of the card width. */}
-      <h1 className="animate-rise font-title text-[length:min(1.875rem,8.4cqw)] leading-snug font-bold whitespace-nowrap [animation-delay:250ms] md:text-[length:min(2.25rem,8.4cqw)] lg:text-[length:min(3rem,8.4cqw)]">
+      <h1 className="animate-rise font-title text-[min(1.875rem,8.4cqw)] leading-snug font-bold whitespace-nowrap [animation-delay:250ms] md:text-[min(2.25rem,8.4cqw)] lg:text-[min(3rem,8.4cqw)]">
         سلام، من{' '}
         <span className="bg-linear-to-l from-violet-600 to-fuchsia-500 bg-clip-text text-transparent dark:from-violet-400 dark:to-fuchsia-400">
           مانی صفرزاده
@@ -52,7 +52,7 @@ function HeroIntro({ aboutId }: HeroIntroProps) {
 
       <p className="animate-rise text-base leading-7 text-pretty text-slate-600 [animation-delay:500ms] md:text-lg dark:text-slate-300">
         برنامه‌نویس بک‌اند و هوش مصنوعی، عضو <bdi className="whitespace-nowrap">arch-nc</bdi>،
-        دانشجوی علوم کامپیوتر با قدرت حل مسئله بالا و تشنه یادگیری، به وب‌سایت من خوش آمدید
+        دانشجوی علوم کامپیوتر با قدرت حل مسئله بالا و تشنه‌ی یادگیری، به وب‌سایت من خوش آمدید
       </p>
 
       <div className="mt-5 flex animate-rise flex-wrap justify-center gap-2.5 [animation-delay:650ms] row:justify-start">
