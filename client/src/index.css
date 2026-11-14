@@ -1,1 +1,29 @@
+/* Tailwind includes "preflight", a CSS reset that clears default browser styles. */
 @import "tailwindcss";
+
+/* Dark mode is on when <html> has the "dark" class (set by useTheme). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Vazirmatn Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    /*
+     * Fluid text size: the root size grows with the screen width, from 15px
+     * (phone) up to 20px (wide screen). Tailwind sizes use rem, so all text
+     * and spacing grow with it. Change the numbers to tune the scale.
+     */
+    font-size: clamp(15px, 12px + 0.6vw, 20px);
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100;
+  }
+}

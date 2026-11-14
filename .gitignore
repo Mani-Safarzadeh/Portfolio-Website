@@ -24,3 +24,6 @@ Thumbs.db
 .idea
 *.suo
 *.sw?
+
+# Claude Code local settings
+.claude/launch.json
