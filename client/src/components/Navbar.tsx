@@ -1,18 +1,9 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { FileText, Mail, Menu, Moon, Sun, User, Wrench, X } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import Logo from '@/components/Logo'
+import { NAV_ITEMS } from '@/data/navItems'
 import { useTheme } from '@/hooks/useTheme'
-
-type NavItem = { label: string; to: string; icon: LucideIcon }
-
-const NAV_ITEMS: NavItem[] = [
-  { label: 'معرفی', to: '/', icon: User },
-  { label: 'مقالات', to: '/articles', icon: FileText },
-  { label: 'مهارت‌ها', to: '/skills', icon: Wrench },
-  { label: 'ارتباط با من', to: '/contact', icon: Mail },
-]
 
 // NavLink gives us `isActive` so the current page is highlighted.
 const linkClass = ({ isActive }: { isActive: boolean }) =>
