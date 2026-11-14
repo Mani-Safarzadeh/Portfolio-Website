@@ -1,5 +1,6 @@
 import { GraduationCap, Heart, Lightbulb, Target, User, type LucideIcon } from 'lucide-react'
-import AboutCard, { type Accent } from '@/components/AboutCard'
+import AboutCard from '@/components/AboutCard'
+import type { Accent } from '@/data/accents'
 
 // One entry per paragraph.
 const ABOUT_PARAGRAPHS = [
