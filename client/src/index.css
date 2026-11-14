@@ -4,13 +4,68 @@
 /* Dark mode is on when <html> has the "dark" class (set by useTheme). */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* `row:` = wide AND landscape. Used to put the hero text and photo side by side.
+   Tall screens (a tablet held upright) stay stacked, so nothing gets squeezed. */
+@custom-variant row (@media (width >= 64rem) and (orientation: landscape));
+
+/* Yekan (SIL Open Font License, see src/fonts). It has one weight only,
+   so the browser fakes bold when `font-bold` is used. */
+@font-face {
+  font-family: "Yekan";
+  src:
+    url("./fonts/Yekan.woff2") format("woff2"),
+    url("./fonts/Yekan.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Vazirmatn Variable", ui-sans-serif, system-ui, sans-serif;
+  /* Use with `font-title` for big headings. */
+  --font-title: "Yekan", "Vazirmatn Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Entrance animations: the element starts invisible, then rises or pops in.
+     Add a delay with e.g. `[animation-delay:200ms]`. */
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* Slow endless drift for decorative shapes. */
+  --animate-float: float 8s ease-in-out infinite;
+  /* Blinking text cursor. */
+  --animate-blink: blink 1s steps(1) infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.75rem);
+    }
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes float {
+    50% {
+      transform: translateY(-0.6rem);
+    }
+  }
 }
 
 @layer base {
   html {
     color-scheme: light;
+    /* Decorative shapes may stick out past the screen edge; never show a sideways scrollbar. */
+    overflow-x: clip;
     /*
      * Fluid text size: the root size grows with the screen width, from 15px
      * (phone) up to 20px (wide screen). Tailwind sizes use rem, so all text
@@ -25,5 +80,22 @@
 
   body {
     @apply bg-white text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100;
+    /* A soft violet glow at the top of the screen, fixed while scrolling. */
+    background-image: radial-gradient(
+      ellipse 70% 45% at 50% -10%,
+      color-mix(in oklab, var(--color-violet-500) 16%, transparent),
+      transparent
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* People who turned animations off in their system get a still page. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+    }
   }
 }
