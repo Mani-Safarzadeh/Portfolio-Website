@@ -1,6 +1,7 @@
 import AboutSection from '@/components/AboutSection'
 import HeroIntro from '@/components/HeroIntro'
 import HeroPhoto from '@/components/HeroPhoto'
+import ReviewsSection from '@/components/ReviewsSection'
 
 const ABOUT_ID = 'about-me'
 
@@ -14,6 +15,7 @@ function HomePage() {
       </section>
 
       <AboutSection id={ABOUT_ID} />
+      <ReviewsSection />
     </>
   )
 }

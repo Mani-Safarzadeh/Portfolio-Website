@@ -55,7 +55,7 @@ type AboutSectionProps = {
  */
 function AboutSection({ id }: AboutSectionProps) {
   return (
-    <section id={id} className="flex scroll-mt-14 flex-col gap-4 pt-6 pb-16 lg:flex-row">
+    <section id={id} className="flex scroll-mt-14 flex-col gap-4 pt-6 pb-12 lg:flex-row">
       {/* First in the HTML = on the right in RTL. */}
       <AboutCard
         title="درباره من"

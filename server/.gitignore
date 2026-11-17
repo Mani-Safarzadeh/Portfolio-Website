@@ -1,0 +1,10 @@
+node_modules
+dist
+
+# Real settings and the JSON "database" are local only (keep the examples).
+.env
+.env.*
+!.env.example
+data/*.json
+!data/.gitkeep
+data/*.tmp

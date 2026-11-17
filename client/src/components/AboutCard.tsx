@@ -54,7 +54,7 @@ function AboutCard({
       {/* Soft glow in the corner; it brightens on hover. */}
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute -end-12 -top-12 size-36 rounded-full opacity-15 blur-3xl transition-opacity duration-500 group-hover:opacity-35 dark:opacity-20 ${look.glow}`}
+        className={`pointer-events-none absolute -inset-e-12 -top-12 size-36 rounded-full opacity-15 blur-3xl transition-opacity duration-500 group-hover:opacity-35 dark:opacity-20 ${look.glow}`}
       />
 
       <div
